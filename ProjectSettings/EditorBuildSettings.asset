@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingScreen.unity
     guid: 16854961879f0a44488e0f5be3bb2bde
+  - enabled: 1
+    path: Assets/Scenes/ControlSetupScreen.unity
+    guid: c0c52aa136994124489d8bda6c2d266a
   m_configObjects: {}

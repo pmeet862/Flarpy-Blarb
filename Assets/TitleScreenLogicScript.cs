@@ -23,12 +23,9 @@ public class TitleScreenLogicScript : MonoBehaviour
         toggleState = PlayerPrefs.GetString("toggleState");
         if (backgroundSound)
         {
-
-
             bgSFX = backgroundSound.GetComponent<AudioSource>();
             if (bool.Parse(toggleState) == false)
             {
-                // Debug.Log("BG: " + bgSFX.mute);
                 bgSFX.mute = true;
             }
             else
@@ -48,6 +45,11 @@ public class TitleScreenLogicScript : MonoBehaviour
     public void sfxSettings()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void changeControl()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void quitGame()

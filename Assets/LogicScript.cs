@@ -12,22 +12,29 @@ public class LogicScript : MonoBehaviour
 
     private int heighScore;
     public static bool isPaused;
-
-    public Text scoreText;
-    public AudioSource dingSFX;
+    private bool countDownEnded;
+    [SerializeField]
+    private Text scoreText;
+    [SerializeField]
+    private AudioSource dingSFX;
     private AudioSource bgSFX;
     public float moveSpeed = 12;
-    public float speedToIncrease = 2;
-    public float maxSpeed = 20;
+    [SerializeField]
+    private float speedToIncrease = 2;
+    [SerializeField]
+    private float maxSpeed = 20;
 
-    public float timer1 = 0;
+    private float timer1 = 0;
 
 
     //After this interval of time the game difficulty increases
-    public float timeInterval = 60;
+    [SerializeField]
+    private float timeInterval = 60;
     public float spawnInterval = 2.2f;
-    public float spawnRateIncreaser = 0.2f;
-    public float minSpawnIterval = 1;
+    [SerializeField]
+    private float spawnRateIncreaser = 0.2f;
+    [SerializeField]
+    private float minSpawnIterval = 1;
     private int timeLeft;
 
     //For backgrounf SFX toggle
@@ -35,15 +42,20 @@ public class LogicScript : MonoBehaviour
 
     //For ding SFX toggle
     private string toggleState1;
-
-    public Text highScoreText;
-    public Text countdownDisplay;
-
-    public GameObject gameOverScreen;
-    public GameObject pauseMenuScreen;
-    public GameObject pauseBTN;
-
-    public GameObject countDown;
+    [SerializeField]
+    private Text highScoreText;
+    [SerializeField]
+    private Text countdownDisplay;
+    [SerializeField]
+    private GameObject gameOverScreen;
+    [SerializeField]
+    private GameObject pauseMenuScreen;
+    [SerializeField]
+    private GameObject pauseBTN;
+    [SerializeField]
+    private GameObject shootBTN;
+    [SerializeField]
+    private GameObject countDown;
     private GameObject backgroundSound;
     private BirdScript bird;
 
@@ -58,20 +70,19 @@ public class LogicScript : MonoBehaviour
             backgroundSound = GameObject.FindGameObjectWithTag("BGSound");
         }
         isPaused = true;
+        countDownEnded = false;
         pauseBTN.SetActive(false);
+        shootBTN.SetActive(false);
         StartCoroutine(resumeGame(3));
     }
     void Start()
     {
-
         heighScore = PlayerPrefs.GetInt("heighScore");
         toggleState = PlayerPrefs.GetString("toggleState");
         toggleState1 = PlayerPrefs.GetString("toggleState1");
 
         if (backgroundSound)
         {
-
-
             bgSFX = backgroundSound.GetComponent<AudioSource>();
             if (bool.Parse(toggleState) == false)
             {
@@ -81,7 +92,6 @@ public class LogicScript : MonoBehaviour
             {
                 bgSFX.mute = false;
             }
-
         }
 
     }
@@ -106,10 +116,11 @@ public class LogicScript : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && bird.birdIsAlive == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && bird.birdIsAlive == true && countDownEnded == true)
         {
             if (isPaused)
             {
+                countDownEnded = false;
                 StartCoroutine(resumeGame(3));
             }
             else
@@ -118,10 +129,6 @@ public class LogicScript : MonoBehaviour
             }
 
         }
-
-
-
-
     }
     //Use for adding score
     //ContexMenu is used for calling the function below it from editor
@@ -149,7 +156,9 @@ public class LogicScript : MonoBehaviour
     {
         pauseMenuScreen.SetActive(true);
         isPaused = true;
+        countDownEnded = true;
         pauseBTN.SetActive(false);
+        shootBTN.SetActive(false);
     }
 
     //Use for resume the game 
@@ -168,8 +177,9 @@ public class LogicScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         countDown.SetActive(false);
         isPaused = false;
+        countDownEnded = true;
         pauseBTN.SetActive(true);
-
+        shootBTN.SetActive(true);
     }
 
     //Use for restart the game 
@@ -189,6 +199,7 @@ public class LogicScript : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         pauseBTN.SetActive(false);
+        shootBTN.SetActive(false);
         pauseMenuScreen.SetActive(false);
 
         if (playerScore > heighScore)

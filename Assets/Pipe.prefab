@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 716022379
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d23df77fc639e3848bf7dd5e95d87910, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 716022379
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d23df77fc639e3848bf7dd5e95d87910, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -269,10 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b8a5bb2f89dc144bbe4e7110c5258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
-  moveSpeed1: 0
   pipeOpenSpeed: 8
-  deadZone: -35
+  deadZone: -27
   topPipe: {fileID: 0}
   bottomPipe: {fileID: 0}
   target: {fileID: 0}
@@ -347,5 +345,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d196c6c1fd2c64da52acd1924d8254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
-  bird: {fileID: 0}

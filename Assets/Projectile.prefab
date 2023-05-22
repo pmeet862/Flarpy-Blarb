@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6148316482145442015}
   - component: {fileID: 6602503253395047653}
   - component: {fileID: 5536369775803895475}
-  - component: {fileID: 2238115917069097478}
   - component: {fileID: 604989405722618316}
   m_Layer: 6
   m_Name: Projectile
@@ -125,32 +124,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0026288019, y: -0.015243294}
   m_Size: {x: 5.335509, y: 1.362037}
   m_Direction: 1
---- !u!61 &2238115917069097478
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762310907758708814}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03304577, y: -0.014458299}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47035074, y: 0.5221723}
-    oldSize: {x: 15.75, y: 6.29}
-    newSize: {x: 15.75, y: 6.29}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.649561, y: 1.5397933}
-  m_EdgeRadius: 0
 --- !u!114 &604989405722618316
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class pauseBtnScript : MonoBehaviour
+public class deselectScript : MonoBehaviour
 {
     public void DeselectButton()
     {

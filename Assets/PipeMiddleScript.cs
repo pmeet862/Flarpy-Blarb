@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PipeMiddleScript : MonoBehaviour
 {
-    public LogicScript logic;
-    public BirdScript bird;
+    private LogicScript logic;
+    private BirdScript bird;
     // Start is called before the first frame update
     void Start()
     {

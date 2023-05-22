@@ -7,15 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class SettingScreenLogicScript : MonoBehaviour
 {
-    public bool toggleState;
-    public bool toggleState1;
+    private bool toggleState;
+    private bool toggleState1;
 
 
-    string toggleCheck;
-    string toggleCheck1;
+    private string toggleCheck;
+    private string toggleCheck1;
 
-    public Toggle toggle;
-    public Toggle toggle1;
+    [SerializeField]
+    private Toggle toggle;
+    [SerializeField]
+    private Toggle toggle1;
     private GameObject backgroundSound;
     private AudioSource bgSFX;
 
@@ -38,11 +40,18 @@ public class SettingScreenLogicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toggleState = toggle.isOn;
-        PlayerPrefs.SetString("toggleState", toggleState.ToString());
-        toggleState1 = toggle1.isOn;
-        PlayerPrefs.SetString("toggleState1", toggleState1.ToString());
-        volumeCheck(toggleState);
+        if (toggle)
+        {
+            toggleState = toggle.isOn;
+            PlayerPrefs.SetString("toggleState", toggleState.ToString());
+            volumeCheck(toggleState);
+        }
+        if (toggle1)
+        {
+            toggleState1 = toggle1.isOn;
+            PlayerPrefs.SetString("toggleState1", toggleState1.ToString());
+            volumeCheck(toggleState);
+        }
     }
 
     void volumeCheck(bool toggleState)

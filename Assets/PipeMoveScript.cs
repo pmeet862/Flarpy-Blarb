@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PipeMoveScript : MonoBehaviour
 {
-    public LogicScript logic;
-    public float moveSpeed1;
-    public float pipeOpenSpeed = 8.0f;
-    public float deadZone = -35f;
-    public GameObject topPipe;
-    public GameObject bottomPipe;
-    public GameObject target;
+    private LogicScript logic;
+    private float moveSpeed1;
+    [SerializeField]
+    private float pipeOpenSpeed = 8.0f;
+    [SerializeField]
+    private float deadZone = -27f;
+    [SerializeField]
+    private GameObject topPipe;
+    [SerializeField]
+    private GameObject bottomPipe;
+    [SerializeField]
+    private GameObject target;
 
 
 
@@ -45,7 +50,7 @@ public class PipeMoveScript : MonoBehaviour
 
     }
 
-    // [ContextMenu("Open Pipe")]
+    [ContextMenu("Open Pipe")]
     public void openPipe()
     {
         float verticalPos = 0f;

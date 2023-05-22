@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PipeSpawnerScript : MonoBehaviour
 {
-    public LogicScript logic;
-    public GameObject pipe;
-    public GameObject pipe2;
+    private LogicScript logic;
+    [SerializeField]
+    private GameObject pipe;
+    [SerializeField]
+    private GameObject pipe2;
     private float spawnRate;
     private float timer = 0;
     private float timer2 = 0;
 
-
-    public float heightOffset = 10;
+    [SerializeField]
+    private float heightOffset = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class PipeSpawnerScript : MonoBehaviour
     {
         spawnRate = logic.spawnInterval;
 
-        if (timer < spawnRate)
+        if (timer < spawnRate && LogicScript.isPaused == false)
         {
             timer = timer + Time.deltaTime;
             timer2 = timer2 + Time.deltaTime;

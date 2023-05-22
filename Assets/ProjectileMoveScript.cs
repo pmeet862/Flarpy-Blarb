@@ -23,6 +23,8 @@ public class ProjectileMoveScript : MonoBehaviour
             moveSpeed = projectileSpeed;
         }
         transform.position = transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+        if (transform.position.x > 26.5f)
+            Destroy(gameObject);
 
     }
 

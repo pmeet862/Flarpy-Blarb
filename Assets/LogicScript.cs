@@ -10,7 +10,7 @@ public class LogicScript : MonoBehaviour
 {
     private int playerScore;
 
-    private int heighScore;
+    private int highScore;
     public static bool isPaused;
     private bool countDownEnded;
     [SerializeField]
@@ -77,7 +77,7 @@ public class LogicScript : MonoBehaviour
     }
     void Start()
     {
-        heighScore = PlayerPrefs.GetInt("heighScore");
+        highScore = PlayerPrefs.GetInt("highScore");
         toggleState = PlayerPrefs.GetString("toggleState");
         toggleState1 = PlayerPrefs.GetString("toggleState1");
 
@@ -98,7 +98,7 @@ public class LogicScript : MonoBehaviour
     void Update()
     {
 
-        highScoreText.text = "Heigh Score: " + PlayerPrefs.GetInt("heighScore").ToString();
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("highScore").ToString();
 
         if (isPaused == false && moveSpeed <= maxSpeed && spawnInterval >= minSpawnIterval)
         {
@@ -139,7 +139,6 @@ public class LogicScript : MonoBehaviour
         scoreText.text = playerScore.ToString();
         if (bool.Parse(toggleState1) == true)
         {
-
             dingSFX.Play();
         }
     }
@@ -202,10 +201,10 @@ public class LogicScript : MonoBehaviour
         shootBTN.SetActive(false);
         pauseMenuScreen.SetActive(false);
 
-        if (playerScore > heighScore)
+        if (playerScore > highScore)
         {
-            heighScore = playerScore;
-            PlayerPrefs.SetInt("heighScore", playerScore);
+            highScore = playerScore;
+            PlayerPrefs.SetInt("highScore", playerScore);
 
         }
     }
